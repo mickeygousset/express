@@ -91,11 +91,11 @@ jobs:
     # Prune and rebuild node_modules
     - name: prune and rebuild node_modules
       run: |
-        if (Test-Path -Path node_modules) {
+        #if (Test-Path -Path node_modules) {
         npm prune
         npm rebuild
-        }
-      shell: pwsh
+        #}
+      shell: bash
     
     - name: npm install
       run: |
