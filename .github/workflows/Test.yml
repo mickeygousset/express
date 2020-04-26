@@ -53,8 +53,9 @@ jobs:
       run: |
         echo ${{ matrix.node-version }}
         #$mynodeVersion = "${{ matrix.node-version }}"
-        $nodeMajorVersion = cut -d. -f1 <<< "${{ matrix.node-version }}"
-        echo "::set-env name=NodeMajorVersion::$nodeMajorVersion"
+        #$nodeMajorVersion = cut -d. -f1 <<< "${{ matrix.node-version }}"
+        echo "::set-env name=NodeMajorVersion::(cut -d. -f1 <<< "${{ matrix.node-version }}")"
+        echo env.NodeMajorVersion
       shell: bash
       
       # Setup Node.js version-specific dependencies
