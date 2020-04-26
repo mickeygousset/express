@@ -49,13 +49,13 @@ jobs:
     # Remove example dependencies
     - run: npm rm --silent --save-dev connect-redis
     
-    - name: Get Major Version Number of NodeJs Using Powershell
+    - name: Get Major Version Number of NodeJs
       run: |
         echo ${{ matrix.node-version }}
-        $mynodeVersion = "${{ matrix.node-version }}"
-        $mynodeMajorVersion = $mynodeVersion.split(".")[0]
-        echo "::set-env name=NodeMajorVersion::$mynodeMajorVersion"
-      shell: pwsh
+        #$mynodeVersion = "${{ matrix.node-version }}"
+        $nodeMajorVersion = cut -d. -f1 <<< "${{ matrix.node-version }}"
+        echo "::set-env name=NodeMajorVersion::$nodeMajorVersion"
+      shell: bash
       
       # Setup Node.js version-specific dependencies
         
