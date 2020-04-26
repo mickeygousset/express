@@ -3,8 +3,10 @@
 name: Test
 
 on:
+  # Trigger the workflow on a pull request to any branch
+  pull_request:
+  # Trigger the workflow on any push to any branch.  TODO: Change this for just master.
   push:
-    branches: [ master ]
 
 jobs:
   
